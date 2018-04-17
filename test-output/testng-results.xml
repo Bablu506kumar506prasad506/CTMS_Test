@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="1" ignored="3" total="4" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="334808" started-at="2018-04-17T11:57:54Z" finished-at="2018-04-17T12:03:29Z">
+  <suite name="Default suite" duration-ms="396830" started-at="2018-04-17T13:03:46Z" finished-at="2018-04-17T13:10:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="334808" started-at="2018-04-17T11:57:54Z" finished-at="2018-04-17T12:03:29Z">
+    <test name="Default test" duration-ms="396830" started-at="2018-04-17T13:03:46Z" finished-at="2018-04-17T13:10:23Z">
       <class name="com.ctms.execution.AdminTask_TS_01">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="beforeMethod" is-config="true" duration-ms="6932" started-at="2018-04-17T17:27:54Z" finished-at="2018-04-17T17:28:01Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="beforeMethod" is-config="true" duration-ms="5969" started-at="2018-04-17T18:33:46Z" finished-at="2018-04-17T18:33:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="RoleXActonMANGMNT()[pri:0, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="RoleXActonMANGMNT" duration-ms="327850" started-at="2018-04-17T17:28:01Z" finished-at="2018-04-17T17:33:29Z">
+        <test-method status="FAIL" signature="RolesXFeatureMNGMNT()[pri:0, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="RolesXFeatureMNGMNT" duration-ms="390825" started-at="2018-04-17T18:33:52Z" finished-at="2018-04-17T18:40:23Z">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[Cannot locate element with text: IP Inventory
@@ -27,8 +27,8 @@ Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b015
 System info: host: 'Bablu-PC', ip: '192.168.56.1', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_161'
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:150)
-	at com.ctms.AdminScenarios.RolesXActionManagement.RoleXActionMngmnt(RolesXActionManagement.java:66)
-	at com.ctms.execution.AdminTask_TS_01.RoleXActonMANGMNT(AdminTask_TS_01.java:53)
+	at com.ctms.AdminScenarios.RolesXFeaturesManagement.RoleXFeturMngmnt(RolesXFeaturesManagement.java:63)
+	at com.ctms.execution.AdminTask_TS_01.RolesXFeatureMNGMNT(AdminTask_TS_01.java:48)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -59,7 +59,7 @@ Driver info: driver.version: unknown
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RoleXActonMANGMNT -->
+        </test-method> <!-- RolesXFeatureMNGMNT -->
       </class> <!-- com.ctms.execution.AdminTask_TS_01 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

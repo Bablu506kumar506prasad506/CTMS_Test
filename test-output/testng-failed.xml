@@ -5,7 +5,7 @@
     <classes>
       <class name="com.ctms.execution.AdminTask_TS_01">
         <methods>
-          <include name="RoleXActonMANGMNT"/>
+          <include name="RolesXFeatureMNGMNT"/>
           <include name="beforeMethod"/>
         </methods>
       </class> <!-- com.ctms.execution.AdminTask_TS_01 -->

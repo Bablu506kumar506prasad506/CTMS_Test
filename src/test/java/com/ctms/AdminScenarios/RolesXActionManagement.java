@@ -62,6 +62,7 @@ public class RolesXActionManagement {
 			String RoleName_Data = r1.getCell(0, i).getContents();
 			Thread.sleep(2000);
 			WebElement SelectRole = GWait.Wait_GetElementByXpath("//app-roles-actions-edit/div/div/div/select");
+			SelectRole.click();
 			Select se = new Select(SelectRole);
 			se.selectByVisibleText(RoleName_Data);
 			int colval = r1.getRow(i).length;

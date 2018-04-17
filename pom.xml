@@ -88,8 +88,7 @@
 				<inherited>true</inherited>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>Executionfile11.xml</suiteXmlFile>
-						<file>src/test/resources/Executionfile4.xml</file>
+						<file>src/test/resources/testng.xml</file>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

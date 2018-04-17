@@ -64,11 +64,11 @@ public class RolesXFeaturesManagement {
 			int colval = r1.getRow(i).length;
 			 
 			System.out.println("No of Colms: " +colval);
-			for (int j = 1; j <= colval; j++) {
+			for (int j = 1; j < colval; j++) {
 				
 				String Feature_Data = r1.getCell(j, i).getContents();
-				
-				WebElement table_element = GWait.Wait_GetElementByCSS("div.ps-content > div > div > table > tbody");
+				Thread.sleep(2000);
+				WebElement table_element = GWait.Wait_GetElementByCSS("div:nth-child(1) > div > div > div > table > tbody");
 				ArrayList<WebElement> rows = (ArrayList<WebElement>) table_element.findElements(By.tagName("tr"));
 				for (WebElement row : rows) {
 					ArrayList<WebElement> cells = (ArrayList<WebElement>) row.findElements(By.cssSelector("td > div > label"));

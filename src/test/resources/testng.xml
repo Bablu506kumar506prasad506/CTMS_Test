@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="Test">
-  </test> <!-- Test -->
+	<test name="Test">
+		<classes>
+			<class name="com.ctms.execution.AdminTask_TS_01">
+				<methods>
+					<include name="AdminTask_Rolesmangmnt" />
+					<include name="AdminTask_UserManagemnt" />
+					<include name="RolesXFeatureMNGMNT" />
+					<include name="RoleXActonMANGMNT" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->
