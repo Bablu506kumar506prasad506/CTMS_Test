@@ -53,11 +53,11 @@ public class RolesXActionManagement {
 
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("AdminTask_RoleXFeatureMNGMNT");
+		Sheet r1 = wb.getSheet("RoleXFeatureMNGMNT");
 
 		int rowval = r1.getRows();
 		System.out.println("No of rows: " + rowval);
-		for (int i = 1; i <= rowval; i++) {
+		for (int i = 1; i <= rowval-1; i++) {
 
 			String RoleName_Data = r1.getCell(0, i).getContents();
 			Thread.sleep(2000);
@@ -86,7 +86,7 @@ public class RolesXActionManagement {
 				k++;
 			}
 		}
-
+		Thread.sleep(8000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
 		Logout_BTN.click();
 

@@ -33,7 +33,7 @@ public class RolesManagement {
 
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("AdminTask_RoleManagement");
+		Sheet r1 = wb.getSheet("RoleManagement");
 
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
@@ -96,7 +96,7 @@ public class RolesManagement {
 			}
 
 		}
-
+		Thread.sleep(8000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
 		Logout_BTN.click();
 

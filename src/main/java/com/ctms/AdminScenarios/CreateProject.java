@@ -48,7 +48,7 @@ public class CreateProject {
 
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("CreateProject");
+		Sheet r1 = wb.getSheet("CreateProject1");
 		int rowCount = r1.getRows();
 		System.out.println(rowCount);
 		for (int i = 1; i <= rowCount-1; i++) {
@@ -114,7 +114,7 @@ public class CreateProject {
 			WebElement projectmanager = GWait.Wait_GetElementByXpath("//div/form/div[10]/div/select");
 			Select se111 = new Select(projectmanager);
 			se111.selectByVisibleText(projectmanager_Data);
-			
+			Thread.sleep(1500);
 			WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
 			Submit_BTN.click();
 		}

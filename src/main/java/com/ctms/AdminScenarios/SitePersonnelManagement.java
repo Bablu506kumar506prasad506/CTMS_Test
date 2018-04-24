@@ -46,7 +46,7 @@ public class SitePersonnelManagement {
 		
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("SitePersonnlManagement");
+		Sheet r1 = wb.getSheet("SitePersonnlManagement1");
 		int rowCount = r1.getRows();
 		System.out.println(rowCount);
 		for (int i = 1; i <= rowCount-1; i++) {
@@ -96,19 +96,19 @@ public class SitePersonnelManagement {
 			WebElement SelectCountry = GWait.Wait_GetElementByXpath("//div/form/div[9]/div/select");
 			Select se4 = new Select(SelectCountry);
 			se4.selectByVisibleText(Country_Data);
-			
-			/*WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
-			Submit_BTN.click();*/
+			Thread.sleep(1500);
+			WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+			Submit_BTN.click();
 			Thread.sleep(8000);
 			
 		}
 		
-		/*Thread.sleep(8000);
+		Thread.sleep(8000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
 		Logout_BTN.click();
 
 		WebElement Logout = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/ul/li[3]/a");
-		Logout.click();*/
+		Logout.click();
 	}
 
 }

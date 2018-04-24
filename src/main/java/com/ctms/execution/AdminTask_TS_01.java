@@ -27,17 +27,17 @@ public class AdminTask_TS_01 {
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("Login");
 
-		String URL = r1.getCell(2, 0).getContents();
+		String URL = r1.getCell(3, 0).getContents();
 		String firefoxBrowser = r1.getCell(1, 2).getContents();
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
 	}
 
-	/*@Test(priority = 0)
+	@Test(priority = 0)
 	public static void AdminTask_Rolesmangmnt() throws Exception {
 
 		RolesManagement rm = new RolesManagement();
 		rm.RoleManagmnt();
-	}*/
+	}
 
 	@Test(priority = 1)
 	public static void AdminTask_UserManagemnt() throws Exception {

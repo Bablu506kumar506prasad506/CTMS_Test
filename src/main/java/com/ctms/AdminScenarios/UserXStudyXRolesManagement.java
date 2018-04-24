@@ -50,7 +50,7 @@ public class UserXStudyXRolesManagement {
 
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("User X Study X Roles Management");
+		Sheet r1 = wb.getSheet("Roles Management");
 		int RowCount = r1.getRows();
 		System.out.println(RowCount);
 		try {
@@ -96,7 +96,7 @@ public class UserXStudyXRolesManagement {
 			e.getMessage();
 		}
 		
-
+		Thread.sleep(1500);
 		WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
 		Submit_BTN.click();
 
