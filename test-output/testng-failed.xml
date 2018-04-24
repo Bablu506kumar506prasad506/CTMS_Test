@@ -6,6 +6,13 @@
       <class name="com.ctms.execution.AdminTask_TS_01">
         <methods>
           <include name="RolesXFeatureMNGMNT"/>
+          <include name="AdminTask_UserManagemnt"/>
+          <include name="UserXStudyXRolesMNG"/>
+          <include name="SiteMNGMT"/>
+          <include name="SitePersnlMNGMT"/>
+          <include name="RoleXActonMANGMNT"/>
+          <include name="AdminTask_Rolesmangmnt"/>
+          <include name="CreatePrjct"/>
           <include name="beforeMethod"/>
         </methods>
       </class> <!-- com.ctms.execution.AdminTask_TS_01 -->

@@ -47,11 +47,11 @@ public class UserManagement {
 		}
 		WebElement shadow = GWait.Wait_GetElementByXpath("/html/body/app-root/mat-sidenav-container/div[1]");
 		shadow.click();
-		Thread.sleep(1500);
+		Thread.sleep(4000);
 		WebElement AddUser_BTN = GWait
 				.Wait_GetElementByXpath("//main/app-admin/app-user-management/div/div[1]/div/button");
 		AddUser_BTN.click();
-
+		Thread.sleep(2000);
 		WebElement SelectRole = GWait.Wait_GetElementByXpath("//form/div[1]/div/select");
 		Select se = new Select(SelectRole);
 		se.selectByIndex(1);
@@ -63,14 +63,16 @@ public class UserManagement {
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("AdminTask_UserManagement");
 		System.out.println(slectRole.size());
-		for (int i = 1; i <= 9; i++) {
+		int RowCount = r1.getRows();
+		
+		for (int i = 10; i <= RowCount-1; i++) {
 
 			String RoleName_Data = r1.getCell(0, i).getContents();
 			String Name_Data = r1.getCell(1, i).getContents();
 			String EmailID_Data = r1.getCell(2, i).getContents();
 			String MobileNumber_Data = r1.getCell(3, i).getContents();
 			String UserName_Data = r1.getCell(4, i).getContents();
-
+			Thread.sleep(4000);
 			WebElement AddUser_BTN1 = GWait
 					.Wait_GetElementByXpath("//main/app-admin/app-user-management/div/div[1]/div/button");
 			AddUser_BTN1.click();
@@ -89,6 +91,7 @@ public class UserManagement {
 			UserName_Field.sendKeys(UserName_Data);
 			WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
 			Submit_BTN.click();
+			Thread.sleep(3000);
 
 		}
 		

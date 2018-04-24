@@ -29,6 +29,15 @@ public class GlobalWait {
 		driverWait.until(ExpectedConditions.invisibilityOfElementLocated(loadingImage));	
 
 	} 
+	
+	public void flyInOut() {
+
+		By loadingImage = By.className("toast-success toast ng-trigger ng-trigger-flyInOut");
+		WebDriverWait driverWait = new WebDriverWait(driver,240);
+		driverWait.until(ExpectedConditions.invisibilityOfElementLocated(loadingImage));	
+
+	} 
+	
 
 	@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
 	public WebElement Wait_GetElementByXpath(final String elementXPath1) {
@@ -43,6 +52,7 @@ public class GlobalWait {
 		});
 //		LoadGif();
 //		blockUI();
+		flyInOut();
 		return elementXpath;
 	}
 		
@@ -58,6 +68,7 @@ public class GlobalWait {
 				return driver.findElement(By.id(elementID));
 			}
 		});
+		flyInOut();
 		return elementIDs;
 	}
 	
@@ -72,6 +83,7 @@ public class GlobalWait {
 				return driver.findElement(By.name(elementName));
 			}
 		});
+		flyInOut();
 		return elementNames;
 
 	}
@@ -87,6 +99,7 @@ public class GlobalWait {
 				return driver.findElement(By.className(elementClassName));
 			}
 		});
+		flyInOut();
 		return elementCN;
 	}
 	
@@ -101,6 +114,7 @@ public class GlobalWait {
 				return driver.findElement(By.cssSelector(elementCSS));
 			}
 		});
+		flyInOut();
 		return elementcss;
 	}
 	
@@ -115,6 +129,7 @@ public class GlobalWait {
 				return driver.findElement(By.linkText(elementLinkText));
 			}
 		});
+		flyInOut();
 		return elementLT;
 	}
 	
@@ -129,6 +144,7 @@ public class GlobalWait {
 				return driver.findElement(By.tagName(elementTagName));
 			}
 		});
+		flyInOut();
 		return elementTN;
 	}
 	
@@ -143,6 +159,7 @@ public class GlobalWait {
 				return driver.findElement(By.partialLinkText(elementPartialLT));
 			}
 		});
+		flyInOut();
 		return elementPLT;
 	}
 	
