@@ -81,19 +81,24 @@ public class RolesManagement {
 			name_TXT1.sendKeys(RoleName_Data);
 			List<WebElement> SelectRole1 = GlobalMethods.driver.findElements(By.xpath("//form/div[2]/div/select"));
 			for (WebElement webElement : SelectRole1) {
-				if (webElement.getText().equalsIgnoreCase(ParentRole_Data)) {
-					System.out.println("Test Element: "+webElement.getText());
-					Select se1 = new Select(webElement);
-					se1.selectByVisibleText(ParentRole_Data);
-					WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
-					Submit_BTN.click();
-					break;
-				} else {
-					WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
-					Submit_BTN.click();
-					break;
+				Select se1 = new Select(webElement);
+				List<WebElement> PRole = se1.getOptions();
+				System.out.println("Test@1 " + se1.getOptions());
+				for (WebElement webElement2 : PRole) {
+					System.out.println("Test Element: " + webElement2.getText());
+					if (webElement2.getText().equalsIgnoreCase(ParentRole_Data)) {
+						Select se11 = new Select(webElement2);
+						se11.selectByVisibleText(ParentRole_Data);
+						WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+						Submit_BTN.click();
+						break;
+					}
 				}
+				
 			}
+
+			WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+			Submit_BTN.click();
 
 		}
 		Thread.sleep(8000);
