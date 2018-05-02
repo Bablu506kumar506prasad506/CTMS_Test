@@ -15,6 +15,7 @@ import com.ctms.AdminScenarios.RolesXActionManagement;
 import com.ctms.AdminScenarios.RolesXFeaturesManagement;
 import com.ctms.AdminScenarios.SiteManagement;
 import com.ctms.AdminScenarios.SitePersonnelManagement;
+import com.ctms.AdminScenarios.StudyXSite;
 import com.ctms.AdminScenarios.UserManagement;
 import com.ctms.AdminScenarios.UserXStudyXRolesManagement;
 import com.ctms.GlobalMethod.GlobalMethods;
@@ -82,9 +83,15 @@ public class AdminTask_TS_01 {
 		SitePersonnelManagement SPM = new SitePersonnelManagement();
 		SPM.AddSitePersnlMNGMNT();
 	}
-	
+
+	@Test(priority = 8)
+	public static void SiteXStudyMethod() throws Exception {
+		StudyXSite SXS = new StudyXSite();
+		SXS.AssingSiteXStudy();
+	}
+
 	@AfterMethod
-	public static void closedriver(){
+	public static void closedriver() {
 		GlobalMethods.driver.close();
 	}
 

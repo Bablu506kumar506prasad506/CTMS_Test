@@ -31,8 +31,8 @@ public class SiteManagement {
 		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
 		AdminTaskNavig.click();
 
-		WebElement Rolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[3]");
-		Rolemngmt.click();
+		WebElement Sitemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[3]");
+		Sitemngmt.click();
 		try {
 			WebElement outclick = GWait.Wait_GetElementByCSS(".mat-drawer-content > div:nth-child(1)");
 			outclick.click();
@@ -49,7 +49,7 @@ public class SiteManagement {
 		Sheet r1 = wb.getSheet("SiteManagement1");
 		int rowCount = r1.getRows();
 		System.out.println(rowCount);
-		for (int i = 1; i <= rowCount-1; i++) {
+		for (int i = 3; i <= rowCount-1; i++) {
 
 			String SiteName_Data = r1.getCell(0, i).getContents();
 			String SiteId_Data = r1.getCell(1, i).getContents();

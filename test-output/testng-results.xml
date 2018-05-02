@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="55304" started-at="2018-05-02T09:11:38Z" finished-at="2018-05-02T09:12:34Z">
+  <suite name="Default suite" duration-ms="39379" started-at="2018-05-02T13:33:10Z" finished-at="2018-05-02T13:33:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="55304" started-at="2018-05-02T09:11:38Z" finished-at="2018-05-02T09:12:34Z">
+    <test name="Default test" duration-ms="39379" started-at="2018-05-02T13:33:10Z" finished-at="2018-05-02T13:33:50Z">
       <class name="com.ctms.execution.AdminTask_TS_01">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="beforeMethod" is-config="true" duration-ms="7391" started-at="2018-05-02T14:41:38Z" finished-at="2018-05-02T14:41:46Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="beforeMethod" is-config="true" duration-ms="7345" started-at="2018-05-02T19:03:10Z" finished-at="2018-05-02T19:03:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="SitePersnlMNGMT()[pri:7, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="SitePersnlMNGMT" duration-ms="47886" started-at="2018-05-02T14:41:46Z" finished-at="2018-05-02T14:42:34Z">
+        <test-method status="PASS" signature="SiteXStudyMethod()[pri:8, instance:com.ctms.execution.AdminTask_TS_01@3bfdc050]" name="SiteXStudyMethod" duration-ms="31997" started-at="2018-05-02T19:03:18Z" finished-at="2018-05-02T19:03:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SitePersnlMNGMT -->
+        </test-method> <!-- SiteXStudyMethod -->
       </class> <!-- com.ctms.execution.AdminTask_TS_01 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
