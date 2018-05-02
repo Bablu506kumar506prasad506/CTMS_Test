@@ -59,11 +59,6 @@ public class RolesManagement {
 		Thread.sleep(2000);
 		WebElement name_TXT = GWait.Wait_GetElementById("name", 60);
 		name_TXT.sendKeys("Test");
-		/*
-		 * WebElement SelectRole =
-		 * GWait.Wait_GetElementByXpath("//form/div[2]/div/select"); Select se =
-		 * new Select(SelectRole); se.selectByIndex(1);
-		 */
 
 		WebElement Cancel_BTN = GWait.Wait_GetElementByCSS("button.blue-rnd-btn:nth-child(2)");
 		Cancel_BTN.click();
@@ -73,32 +68,40 @@ public class RolesManagement {
 		for (int i = 1; i <= RowCount - 1; i++) {
 			String RoleName_Data = r1.getCell(0, i).getContents();
 			String ParentRole_Data = r1.getCell(1, i).getContents();
+
+			String Test = ParentRole_Data;
 			Thread.sleep(4000);
 			WebElement AddRole_BTN1 = GWait
 					.Wait_GetElementByXpath("//main/app-admin/app-roles-management/div/div[1]/div/button");
 			AddRole_BTN1.click();
 			WebElement name_TXT1 = GWait.Wait_GetElementById("name", 60);
 			name_TXT1.sendKeys(RoleName_Data);
-			List<WebElement> SelectRole1 = GlobalMethods.driver.findElements(By.xpath("//form/div[2]/div/select"));
-			for (WebElement webElement : SelectRole1) {
-				Select se1 = new Select(webElement);
-				List<WebElement> PRole = se1.getOptions();
-				System.out.println("Test@1 " + se1.getOptions());
-				for (WebElement webElement2 : PRole) {
-					System.out.println("Test Element: " + webElement2.getText());
-					if (webElement2.getText().equalsIgnoreCase(ParentRole_Data)) {
-						Select se11 = new Select(webElement2);
-						se11.selectByVisibleText(ParentRole_Data);
-						WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
-						Submit_BTN.click();
-						break;
+			if (Test != "") {
+				List<WebElement> SelectRole1 = GlobalMethods.driver.findElements(By.xpath("//form/div[2]/div/select"));
+				for (WebElement webElement : SelectRole1) {
+					Select se1 = new Select(webElement);
+					List<WebElement> PRole = se1.getOptions();
+					System.out.println("Test@1 " + se1.getOptions());
+					for (WebElement webElement2 : PRole) {
+						System.out.println("Test Element1: " + webElement2.getText());
+						System.out.println("Test Element2: " + Test);
+						if (webElement2.getText().trim().equalsIgnoreCase(Test)) {
+
+							System.out.println(webElement2);
+
+							webElement2.click();
+
+							WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+							Submit_BTN.click();
+							break;
+						}
+
 					}
 				}
-				
+			} else {
+				WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+				Submit_BTN.click();
 			}
-
-			WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
-			Submit_BTN.click();
 
 		}
 		Thread.sleep(8000);

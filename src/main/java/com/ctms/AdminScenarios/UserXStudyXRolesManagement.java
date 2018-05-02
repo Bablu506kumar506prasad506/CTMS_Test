@@ -54,7 +54,7 @@ public class UserXStudyXRolesManagement {
 		int RowCount = r1.getRows();
 		System.out.println(RowCount);
 		try {
-			for (int i = 0; i <= RowCount - 1; i++) {
+			for (int i = 1; i <= RowCount - 1; i++) {
 
 				String UserName_Data = r1.getCell(0, i).getContents();
 				String RoleName_Data = r1.getCell(1, i).getContents();
@@ -62,7 +62,7 @@ public class UserXStudyXRolesManagement {
 				Thread.sleep(2000);
 				WebElement SelectUser = GWait.Wait_GetElementByXpath("//form/div[1]/div/select");
 				Select se = new Select(SelectUser);
-				se.selectByVisibleText("user1");
+				se.selectByVisibleText(UserName_Data);
 
 				List<WebElement> AllStudy = GlobalMethods.driver.findElements(By.className("fixedWidth"));
 				System.out.println("Test 0: " + AllStudy);
@@ -75,30 +75,29 @@ public class UserXStudyXRolesManagement {
 						// ---------Click the study check box------//
 						chebox.click();
 						System.out.println("Test 2: " + chebox.getAttribute("name"));
-						List<WebElement> SelectRoles = GlobalMethods.driver.findElements(By.xpath("//td[3]/div/select"));
+						List<WebElement> SelectRoles = GlobalMethods.driver
+								.findElements(By.xpath("//td[3]/div/select"));
 						for (WebElement webElement2 : SelectRoles) {
 							System.out.println("Test 3: " + webElement2.getAttribute("name"));
 							if (webElement2.getAttribute("name").equalsIgnoreCase(Study_Data)) {
 								// -----Select the Roles-----//
 								Select se1 = new Select(webElement2);
-								se1.selectByVisibleText("CTA");
+								se1.selectByVisibleText(RoleName_Data);
+								Thread.sleep(1500);
+								WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+								Submit_BTN.click();
 								break;
 							}
 
 						}
 
 					}
-					
 				}
 
 			}
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		
-		Thread.sleep(1500);
-		WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
-		Submit_BTN.click();
 
 		Thread.sleep(10000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
