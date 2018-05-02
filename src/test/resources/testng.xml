@@ -9,6 +9,10 @@
 					<include name="AdminTask_UserManagemnt" />
 					<include name="RolesXFeatureMNGMNT" />
 					<include name="RoleXActonMANGMNT" />
+					<include name="CreatePrjct"/>
+					<include name="UserXStudyXRolesMNG"/>
+					<include name="SiteMNGMT"/>
+					<include name="SitePersnlMNGMT"/>
 				</methods>
 			</class>
 		</classes>
