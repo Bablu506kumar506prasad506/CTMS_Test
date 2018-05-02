@@ -2,6 +2,7 @@ package com.ctms.execution;
 
 import java.io.FileInputStream;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -80,6 +81,11 @@ public class AdminTask_TS_01 {
 	public static void SitePersnlMNGMT() throws Exception {
 		SitePersonnelManagement SPM = new SitePersonnelManagement();
 		SPM.AddSitePersnlMNGMNT();
+	}
+	
+	@AfterMethod
+	public static void closedriver(){
+		GlobalMethods.driver.close();
 	}
 
 }
