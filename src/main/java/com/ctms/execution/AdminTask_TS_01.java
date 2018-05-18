@@ -10,6 +10,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 
 import com.ctms.AdminScenarios.CreateProject;
+import com.ctms.AdminScenarios.PM_ProjectList;
 import com.ctms.AdminScenarios.RolesManagement;
 import com.ctms.AdminScenarios.RolesXActionManagement;
 import com.ctms.AdminScenarios.RolesXFeaturesManagement;
@@ -34,7 +35,7 @@ public class AdminTask_TS_01 {
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
 	}
 
-	@Test(priority = 0)
+	/*@Test(priority = 0)
 	public static void AdminTask_Rolesmangmnt() throws Exception {
 
 		RolesManagement rm = new RolesManagement();
@@ -66,19 +67,19 @@ public class AdminTask_TS_01 {
 		CP.CratPrjct();
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 7)
 	public static void UserXStudyXRolesMNG() throws Exception {
 		UserXStudyXRolesManagement USRM = new UserXStudyXRolesManagement();
 		USRM.UsrXStdyXRlsMNGMNT();
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 5)
 	public static void SiteMNGMT() throws Exception {
 		SiteManagement SM = new SiteManagement();
 		SM.CratSite();
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 6)
 	public static void SitePersnlMNGMT() throws Exception {
 		SitePersonnelManagement SPM = new SitePersonnelManagement();
 		SPM.AddSitePersnlMNGMNT();
@@ -88,11 +89,17 @@ public class AdminTask_TS_01 {
 	public static void SiteXStudyMethod() throws Exception {
 		StudyXSite SXS = new StudyXSite();
 		SXS.AssingSiteXStudy();
+	}*/
+	
+	@Test(priority = 9)
+	public static void ProjectListMethod() throws Exception {
+		PM_ProjectList PLP = new PM_ProjectList();
+		PLP.ProjectListMethod();
 	}
 
-	@AfterMethod
+	/*@AfterMethod
 	public static void closedriver() {
 		GlobalMethods.driver.close();
-	}
+	}*/
 
 }

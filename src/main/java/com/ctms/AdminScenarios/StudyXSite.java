@@ -28,11 +28,11 @@ public class StudyXSite {
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		AdminTaskNavig.click();
+		WebElement MenuNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
+		MenuNavig.click();
 
-		WebElement Rolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[6]/a");
-		Rolemngmt.click();
+		WebElement StudyXSitemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[5]");
+		StudyXSitemngmt.click();
 		try {
 			WebElement outclick = GWait.Wait_GetElementByCSS(".mat-drawer-content > div:nth-child(1)");
 			outclick.click();
