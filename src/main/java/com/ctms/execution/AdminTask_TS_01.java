@@ -35,7 +35,7 @@ public class AdminTask_TS_01 {
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
 	}
 
-	/*@Test(priority = 0)
+	@Test(priority = 0)
 	public static void AdminTask_Rolesmangmnt() throws Exception {
 
 		RolesManagement rm = new RolesManagement();
@@ -89,17 +89,17 @@ public class AdminTask_TS_01 {
 	public static void SiteXStudyMethod() throws Exception {
 		StudyXSite SXS = new StudyXSite();
 		SXS.AssingSiteXStudy();
-	}*/
+	}
 	
-	@Test(priority = 9)
+	/*@Test(priority = 9)
 	public static void ProjectListMethod() throws Exception {
 		PM_ProjectList PLP = new PM_ProjectList();
 		PLP.ProjectListMethod();
-	}
+	}*/
 
-	/*@AfterMethod
+	@AfterMethod
 	public static void closedriver() {
 		GlobalMethods.driver.close();
-	}*/
+	}
 
 }

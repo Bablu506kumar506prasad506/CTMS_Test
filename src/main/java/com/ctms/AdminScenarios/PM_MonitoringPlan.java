@@ -147,7 +147,6 @@ public class PM_MonitoringPlan {
 
 							}
 							
-							break;
 						}
 					}
 				}
