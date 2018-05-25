@@ -31,17 +31,9 @@ public class SitePersonnelManagement {
 		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
 		AdminTaskNavig.click();
 
-		WebElement Rolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[4]");
-		Rolemngmt.click();
-		try {
-			WebElement outclick = GWait.Wait_GetElementByCSS(".mat-drawer-content > div:nth-child(1)");
-			outclick.click();
-
-		} catch (Exception e) {
-			e.getMessage();
-		}
-		WebElement shadow = GWait.Wait_GetElementByXpath("/html/body/app-root/mat-sidenav-container/div[1]");
-		shadow.click();
+		WebElement SitPrsnlmngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[4]");
+		SitPrsnlmngmt.click();
+		
 		Thread.sleep(1500);
 		
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");

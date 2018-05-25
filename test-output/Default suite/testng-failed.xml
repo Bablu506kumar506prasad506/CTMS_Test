@@ -5,8 +5,9 @@
     <classes>
       <class name="com.ctms.execution.AdminTask_TS_01">
         <methods>
-          <include name="ProjectListMethod"/>
+          <include name="AdminTask_Rolesmangmnt"/>
           <include name="beforeMethod"/>
+          <include name="closedriver"/>
         </methods>
       </class> <!-- com.ctms.execution.AdminTask_TS_01 -->
     </classes>

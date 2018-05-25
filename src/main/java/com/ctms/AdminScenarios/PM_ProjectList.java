@@ -47,15 +47,7 @@ public class PM_ProjectList extends PM_AssignCRA {
 		ProjectMNGMT_Link.click();
 		WebElement ProjectList_Link = GWait.Wait_GetElementByXpath("//nav/ul/li[6]/div/ul/li[1]/a");
 		ProjectList_Link.click();
-		try {
-			WebElement outclick = GWait.Wait_GetElementByCSS(".mat-drawer-content > div:nth-child(1)");
-			outclick.click();
-
-		} catch (Exception e) {
-			e.getMessage();
-		}
-		WebElement shadow = GWait.Wait_GetElementByXpath("/html/body/app-root/mat-sidenav-container/div[1]");
-		shadow.click();
+		
 		Thread.sleep(3000);
 		int RowValue = r1.getRows();
 		System.out.println("Test00 :" + RowValue);
