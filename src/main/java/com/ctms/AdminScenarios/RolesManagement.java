@@ -57,7 +57,7 @@ public class RolesManagement {
 
 		int RowCount = r1.getRows();
 		System.out.println("No. of rows:  " + RowCount);
-		for (int i = 3; i <= RowCount - 1; i++) {
+		for (int i = 1; i <= RowCount - 1; i++) {
 			String RoleName_Data = r1.getCell(0, i).getContents();
 			String ParentRole_Data = r1.getCell(1, i).getContents();
 
