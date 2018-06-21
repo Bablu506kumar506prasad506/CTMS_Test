@@ -35,14 +35,14 @@ public class RolesManagement {
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("RoleManagement");
 
-		/*WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
+		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
 		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
 		AdminTaskNavig.click();
 
-		WebElement Rolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[1]/a");
-		Rolemngmt.click();*/
+		WebElement Rolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[2]/a");
+		Rolemngmt.click();
 		
 		Thread.sleep(4000);
 		WebElement AddRole_BTN = GWait

@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +25,8 @@ public class RolesXActionManagement {
 
 	GlobalWait GWait = new GlobalWait(GlobalMethods.driver);
 	Actions action = new Actions(GlobalMethods.driver);
+	
+	JavascriptExecutor js;
 
 	@FindBy(xpath = "//*[@class='panel ng-star-inserted']")
 	List<WebElement> featursDataList;
@@ -71,6 +74,8 @@ public class RolesXActionManagement {
 						.findElements(By.xpath("//a[@class='table-btn text-center margin-auto']"));
 				for (WebElement webElement : table_Subelement) {
 					if (webElement.getText().equalsIgnoreCase("Disable")) {
+						js = (JavascriptExecutor) GlobalMethods.driver;
+						js.executeScript("arguments[0].scrollIntoView(true);", table_element);
 						webElement.click();
 					}
 				}
@@ -80,6 +85,8 @@ public class RolesXActionManagement {
 		}
 		Thread.sleep(8000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
+		js = (JavascriptExecutor) GlobalMethods.driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Logout_BTN);
 		Logout_BTN.click();
 
 		WebElement Logout = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/ul/li[3]/a");

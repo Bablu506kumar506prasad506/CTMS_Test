@@ -42,7 +42,7 @@ public class AdminTask_TS_01 {
 		rm.RoleManagmnt();
 	}
 
-	@Test(priority = 1)
+	/*@Test(priority = 1)
 	public static void AdminTask_UserManagemnt() throws Exception {
 		UserManagement UM = new UserManagement();
 		UM.UserMngmnt();
@@ -91,15 +91,15 @@ public class AdminTask_TS_01 {
 		SXS.AssingSiteXStudy();
 	}
 	
-	/*@Test(priority = 9)
+	@Test(priority = 9)
 	public static void ProjectListMethod() throws Exception {
 		PM_ProjectList PLP = new PM_ProjectList();
 		PLP.ProjectListMethod();
-	}*/
+	}
 
 	@AfterMethod
 	public static void closedriver() {
 		GlobalMethods.driver.close();
-	}
+	}*/
 
 }

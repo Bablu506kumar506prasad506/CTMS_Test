@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -25,6 +26,8 @@ public class UserXStudyXRolesManagement {
 
 	GlobalWait GWait = new GlobalWait(GlobalMethods.driver);
 	Actions action = new Actions(GlobalMethods.driver);
+	
+	JavascriptExecutor js;
 
 	public void UsrXStdyXRlsMNGMNT() throws Exception {
 		GlobalMethods.Admin_Login();
@@ -65,6 +68,8 @@ public class UserXStudyXRolesManagement {
 						WebElement chebox = GlobalMethods.driver.findElement(By.name(Test));
 						Thread.sleep(2500);
 						// ---------Click the study check box------//
+						js = (JavascriptExecutor) GlobalMethods.driver;
+						js.executeScript("arguments[0].scrollIntoView(true);", chebox);
 						chebox.click();
 						System.out.println("Test 2: " + chebox.getAttribute("name"));
 						List<WebElement> SelectRoles = GlobalMethods.driver
@@ -77,6 +82,8 @@ public class UserXStudyXRolesManagement {
 								se1.selectByVisibleText(RoleName_Data);
 								Thread.sleep(1500);
 								WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+								js = (JavascriptExecutor) GlobalMethods.driver;
+								js.executeScript("arguments[0].scrollIntoView(true);", Submit_BTN);
 								Submit_BTN.click();
 								break;
 							}
@@ -93,6 +100,8 @@ public class UserXStudyXRolesManagement {
 
 		Thread.sleep(10000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
+		js = (JavascriptExecutor) GlobalMethods.driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", Logout_BTN);
 		Logout_BTN.click();
 
 		WebElement Logout = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/ul/li[3]/a");
