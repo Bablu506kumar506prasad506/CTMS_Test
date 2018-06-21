@@ -35,15 +35,16 @@ public class RolesManagement {
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("RoleManagement");
 
-		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
+		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham>img", 180);
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
+		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)",
+				120);
 		AdminTaskNavig.click();
 
 		WebElement Rolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[2]/a");
 		Rolemngmt.click();
-		
+
 		Thread.sleep(4000);
 		WebElement AddRole_BTN = GWait
 				.Wait_GetElementByXpath("//main/app-admin/app-roles-management/div/div[1]/div/button");
@@ -63,8 +64,7 @@ public class RolesManagement {
 
 			String Test = ParentRole_Data;
 			Thread.sleep(4000);
-			WebElement AddRole_BTN1 = GWait
-					.Wait_GetElementByXpath("//main/app-admin/app-roles-management/div/div[1]/div/button");
+			WebElement AddRole_BTN1 = GWait.Wait_GetElementByXpath("//div/div[1]/div/button");
 			AddRole_BTN1.click();
 			WebElement name_TXT1 = GWait.Wait_GetElementById("name", 60);
 			name_TXT1.sendKeys(RoleName_Data);

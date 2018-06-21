@@ -104,8 +104,9 @@ public class GlobalWait {
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
-	public WebElement Wait_GetElementByCSS(final String elementCSS) {
-		Wait wait = new FluentWait(driver).withTimeout(120, TimeUnit.SECONDS).pollingEvery(2, TimeUnit.SECONDS)
+	public WebElement Wait_GetElementByCSS(final String elementCSS, Integer... Timeinsec) {
+		Integer time = Timeinsec.length > 0 ? Timeinsec[0] : 180;
+		Wait wait = new FluentWait(driver).withTimeout(120, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 		WebElement elementcss = (WebElement) wait.until(new Function() {
 			@Override

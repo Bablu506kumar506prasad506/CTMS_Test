@@ -7,7 +7,6 @@
         <methods>
           <include name="AdminTask_Rolesmangmnt"/>
           <include name="beforeMethod"/>
-          <include name="closedriver"/>
         </methods>
       </class> <!-- com.ctms.execution.AdminTask_TS_01 -->
     </classes>
