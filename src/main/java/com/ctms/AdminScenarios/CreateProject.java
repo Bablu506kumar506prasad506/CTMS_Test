@@ -111,7 +111,7 @@ public class CreateProject {
 			Submit_BTN.click();
 		}
 		
-		Thread.sleep(8000);
+		Thread.sleep(7000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
 		Logout_BTN.click();
 
