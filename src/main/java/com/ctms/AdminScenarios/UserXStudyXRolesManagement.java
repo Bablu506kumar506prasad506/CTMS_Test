@@ -31,31 +31,28 @@ public class UserXStudyXRolesManagement {
 
 	public void UsrXStdyXRlsMNGMNT() throws Exception {
 		GlobalMethods.Admin_Login();
-
+		Thread.sleep(1500);
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		AdminTaskNavig.click();
-
-		WebElement UsrXStdyXRolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[5]/a");
+		WebElement UsrXStdyXRolemngmt = GWait.Wait_GetElementByLinkText("User X Study X Roles Management");
 		UsrXStdyXRolemngmt.click();
 		
 		Thread.sleep(1500);
 
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("Roles Management");
+		Sheet r1 = wb.getSheet("UserXStudyXRole");
 		int RowCount = r1.getRows();
 		System.out.println(RowCount);
 		try {
-			for (int i = 1; i <= RowCount - 1; i++) {
+			for (int i = 2; i <= RowCount - 1; i++) {
 
 				String UserName_Data = r1.getCell(0, i).getContents();
-				String RoleName_Data = r1.getCell(1, i).getContents();
-				String Study_Data = r1.getCell(2, i).getContents();
+				String Study_Data = r1.getCell(1, i).getContents();
+				String RoleName_Data = r1.getCell(2, i).getContents();
 				Thread.sleep(2000);
-				WebElement SelectUser = GWait.Wait_GetElementByXpath("//form/div[1]/div/select");
+				WebElement SelectUser = GWait.Wait_GetElementByXpath("//div[2]/form/div[1]/div[2]/div/select");
 				Select se = new Select(SelectUser);
 				se.selectByVisibleText(UserName_Data);
 
@@ -84,7 +81,10 @@ public class UserXStudyXRolesManagement {
 								WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
 								js = (JavascriptExecutor) GlobalMethods.driver;
 								js.executeScript("arguments[0].scrollIntoView(true);", Submit_BTN);
-								Submit_BTN.click();
+								WebElement Submit_BTN1 = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+								Thread.sleep(2000);
+								Submit_BTN1.click();
+								Thread.sleep(3000);
 								break;
 							}
 

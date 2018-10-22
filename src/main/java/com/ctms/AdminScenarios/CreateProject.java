@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -23,24 +24,22 @@ public class CreateProject {
 
 	GlobalWait GWait = new GlobalWait(GlobalMethods.driver);
 	Actions action = new Actions(GlobalMethods.driver);
+	JavascriptExecutor js;
 
 	public void CratPrjct() throws Exception {
 		GlobalMethods.Admin_Login();
-
+		Thread.sleep(1500);
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		AdminTaskNavig.click();
-
-		WebElement CreatePRJT = GWait.Wait_GetElementByXpath("//nav/ul/li[2]");
+		WebElement CreatePRJT = GWait.Wait_GetElementByLinkText("Create Project");
 		CreatePRJT.click();
 		
 		Thread.sleep(1500);
 
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("CreateProject1");
+		Sheet r1 = wb.getSheet("CreateProject");
 		int rowCount = r1.getRows();
 		System.out.println(rowCount);
 		for (int i = 1; i <= rowCount-1; i++) {
@@ -69,32 +68,43 @@ public class CreateProject {
 			SponsorName_Link.sendKeys(SponsorName_Data);
 			WebElement SponsorAddress_Link = GWait.Wait_GetElementByCSS("textarea[formControlName=SponsorAddress]");
 			SponsorAddress_Link.sendKeys(SponsorAddress_Data);
-
-			List<WebElement> ProjctServce_Link = GlobalMethods.driver
-					.findElements(By.xpath("//input[@type='checkbox']"));
-			for (WebElement webElement : ProjctServce_Link) {
-				System.out.println("Project Seravice Data: " + webElement.getAttribute("value"));
-				if (webElement.getAttribute("value").equalsIgnoreCase(ProjctServce_Data)) {
-					webElement.click();
-					break;
-				}
+			
+			for (int j = 1; j <= 6; j++) {
 				
+				List<WebElement> ProjctServce_Link = GlobalMethods.driver
+						.findElements(By.xpath("//div/div[5]/div/div/ul/li["+j+"]/div/label"));
+				for (WebElement webElement : ProjctServce_Link) {
+					
+					String[] splitPS = ProjctServce_Data.split(",");
+					for (String string : splitPS) {
+						System.out.println("PS Splited data: "+string);
+						System.out.println("Project Seravice Data: " + webElement.getText());
+						if (webElement.getText().equalsIgnoreCase(string)) {
+							Thread.sleep(2000);
+							webElement.click();
+							break;
+						}
+					}
+					
+					
+				}
 			}
+			
 
 			// --------Project Budget-------//
-			WebElement SelectPBC = GWait.Wait_GetElementByXpath("//form/div[6]/div/select");
+			WebElement SelectPBC = GWait.Wait_GetElementByCSS(".col-sm-5.ng-untouched.ng-pristine.ng-invalid");
 			Select se = new Select(SelectPBC);
 			se.selectByVisibleText(PBCurncy_Data);
 			WebElement PBCost_Link = GWait.Wait_GetElementByCSS("input[formControlName=ProjectBudget]");
 			PBCost_Link.sendKeys(PBCost_Data);
 			// -------Professional Cost------//
-			WebElement SelectProfessionalCOST = GWait.Wait_GetElementByXpath("//form/div[7]/div/select");
+			WebElement SelectProfessionalCOST = GWait.Wait_GetElementByCSS(".col-sm-5.ng-untouched.ng-pristine.ng-invalid");
 			Select se1 = new Select(SelectProfessionalCOST);
 			se1.selectByVisibleText(ProfnlCurrency_Data);
 			WebElement ProfessionalCost_Link = GWait.Wait_GetElementByCSS("input[formControlName=ProfessionalCost]");
 			ProfessionalCost_Link.sendKeys(ProfessionalCost_Data);
 			// -------Pass Through Cost------//
-			WebElement PassThroughCost = GWait.Wait_GetElementByXpath("//form/div[8]/div/select");
+			WebElement PassThroughCost = GWait.Wait_GetElementByCSS(".col-sm-5.ng-untouched.ng-pristine.ng-invalid");
 			Select se11 = new Select(PassThroughCost);
 			se11.selectByVisibleText(PTCurrency_Data);
 			WebElement PassThroughCost_Link = GWait.Wait_GetElementByCSS("input[formControlName=PassThroughCost]");
@@ -103,11 +113,15 @@ public class CreateProject {
 			TotalIp_Link.sendKeys(TotalIp_Data);
 
 			// -------Assign Project Manager--------//
-			WebElement projectmanager = GWait.Wait_GetElementByXpath("//div/form/div[10]/div/select");
+			
+			WebElement projectmanager = GWait.Wait_GetElementByXpath("//div[2]/div/div[10]/div/div/select");
 			Select se111 = new Select(projectmanager);
 			se111.selectByVisibleText(projectmanager_Data);
 			Thread.sleep(1500);
+			
+			js = (JavascriptExecutor) GlobalMethods.driver;
 			WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
+			js.executeScript("arguments[0].scrollIntoView(true);", Submit_BTN);
 			Submit_BTN.click();
 		}
 		

@@ -24,21 +24,18 @@ public class SiteManagement {
 
 	public void CratSite() throws Exception {
 		GlobalMethods.Admin_Login();
-
+		Thread.sleep(1500);
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement MenuNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		MenuNavig.click();
-
-		WebElement Sitemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[3]");
+		WebElement Sitemngmt = GWait.Wait_GetElementByLinkText("Site Management");
 		Sitemngmt.click();
 		
 		Thread.sleep(1500);
 		
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("SiteManagement1");
+		Sheet r1 = wb.getSheet("SiteManagement");
 		int rowCount = r1.getRows();
 		System.out.println(rowCount);
 		for (int i = 1; i <= rowCount-1; i++) {
@@ -49,7 +46,8 @@ public class SiteManagement {
 			String State_Data = r1.getCell(3, i).getContents();
 			String CityName_Data = r1.getCell(4, i).getContents();
 			String SiteAddress_Data = r1.getCell(5, i).getContents();
-			String ContactNo_Data = r1.getCell(6, i).getContents();
+			String SiteLocation_Data = r1.getCell(6, i).getContents();
+			String ContactNo_Data = r1.getCell(7, i).getContents();
 			
 			WebElement AddSite_BTN = GWait.Wait_GetElementByXpath("//div/div[1]/div/button");
 			AddSite_BTN.click();
@@ -72,7 +70,8 @@ public class SiteManagement {
 			CityName_Link.sendKeys(CityName_Data);
 			WebElement SiteAddress_Link = GWait.Wait_GetElementByCSS("input[formControlName=SiteAddress]");
 			SiteAddress_Link.sendKeys(SiteAddress_Data);
-			
+			WebElement SiteLocation_Link = GWait.Wait_GetElementByCSS("input[formControlName=Location]");
+			SiteLocation_Link.sendKeys(SiteLocation_Data);
 			WebElement ContactNo_Link = GWait.Wait_GetElementByCSS("input[formControlName=ContactNo]");
 			ContactNo_Link.sendKeys(ContactNo_Data);
 			

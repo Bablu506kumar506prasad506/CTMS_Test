@@ -31,18 +31,14 @@ public class RolesManagement {
 	public void RoleManagmnt() throws Exception {
 		GlobalMethods.Admin_Login();
 
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("RoleManagement");
 
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham>img", 180);
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)",
-				120);
-		AdminTaskNavig.click();
-
-		WebElement Rolemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[2]/a");
+		WebElement Rolemngmt = GWait.Wait_GetElementByLinkText("Roles Management");
 		Rolemngmt.click();
 
 		Thread.sleep(4000);

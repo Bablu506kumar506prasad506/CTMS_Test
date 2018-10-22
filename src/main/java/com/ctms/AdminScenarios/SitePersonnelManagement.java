@@ -24,55 +24,48 @@ public class SitePersonnelManagement {
 
 	public void AddSitePersnlMNGMNT() throws Exception {
 		GlobalMethods.Admin_Login();
-
+		Thread.sleep(1500);
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		AdminTaskNavig.click();
-
-		WebElement SitPrsnlmngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[4]");
+		WebElement SitPrsnlmngmt = GWait.Wait_GetElementByLinkText("Site Personnel Management");
 		SitPrsnlmngmt.click();
 		
 		Thread.sleep(1500);
 		
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("SitePersonnlManagement1");
+		Sheet r1 = wb.getSheet("SiteperssionalManmt");
 		int rowCount = r1.getRows();
 		System.out.println(rowCount);
 		for (int i = 1; i <= rowCount-1; i++) {
 
-			String StudyName_Data = r1.getCell(0, i).getContents();
-			String SiteName_Data = r1.getCell(1, i).getContents();
-			String Salutation_Data = r1.getCell(2, i).getContents();
-			String Name_Data = r1.getCell(3, i).getContents();
-			String Role_Data = r1.getCell(4, i).getContents();
-			String OrganizationName_Data = r1.getCell(5, i).getContents();
-			String EmailId_Data = r1.getCell(6, i).getContents();
-			String MobileNo_Data = r1.getCell(7, i).getContents();
-			String Country_Data = r1.getCell(8, i).getContents();
+			String SiteName_Data = r1.getCell(0, i).getContents();
+			String Salutation_Data = r1.getCell(1, i).getContents();
+			String Name_Data = r1.getCell(2, i).getContents();
+			String Role_Data = r1.getCell(3, i).getContents();
+			String OrganizationName_Data = r1.getCell(4, i).getContents();
+			String EmailId_Data = r1.getCell(5, i).getContents();
+			String MobileNo_Data = r1.getCell(6, i).getContents();
+			String Country_Data = r1.getCell(7, i).getContents();
 																	
 			WebElement AddSite_BTN = GWait.Wait_GetElementByXpath("//div/div[1]/div/button");
 			AddSite_BTN.click();
 			
 			//----------Create Site Personnel----------//
-			WebElement SelectStudy = GWait.Wait_GetElementByXpath("//div/form/div[1]/div/select");
-			Select se = new Select(SelectStudy);
-			se.selectByVisibleText(StudyName_Data);
 			
-			WebElement SelectSite = GWait.Wait_GetElementByXpath("//div/form/div[2]/div/select");
+			WebElement SelectSite = GWait.Wait_GetElementByXpath("//div/form/div[1]/div/select");
 			Select se1 = new Select(SelectSite);
 			se1.selectByVisibleText(SiteName_Data);
 			
-			WebElement SelectSalutation = GWait.Wait_GetElementByXpath("//div/form/div[3]/div/select");
+			WebElement SelectSalutation = GWait.Wait_GetElementByXpath("//div/form/div[2]/div/select");
 			Select se2 = new Select(SelectSalutation);
 			se2.selectByVisibleText(Salutation_Data);
 			
 			WebElement Name_Link = GWait.Wait_GetElementByCSS("input[formControlName=Name]");
 			Name_Link.sendKeys(Name_Data);
 			
-			WebElement SelectRole = GWait.Wait_GetElementByXpath("//div/form/div[5]/div/select");
+			WebElement SelectRole = GWait.Wait_GetElementByXpath("//div/form/div[4]/div/select");
 			Select se3 = new Select(SelectRole);
 			se3.selectByVisibleText(Role_Data);
 			
@@ -85,7 +78,7 @@ public class SitePersonnelManagement {
 			WebElement MobileNo_Link = GWait.Wait_GetElementByCSS("input[formControlName=MobileNo]");
 			MobileNo_Link.sendKeys(MobileNo_Data);
 			
-			WebElement SelectCountry = GWait.Wait_GetElementByXpath("//div/form/div[9]/div/select");
+			WebElement SelectCountry = GWait.Wait_GetElementByXpath("//div/form/div[8]/div/select");
 			Select se4 = new Select(SelectCountry);
 			se4.selectByVisibleText(Country_Data);
 			Thread.sleep(1500);

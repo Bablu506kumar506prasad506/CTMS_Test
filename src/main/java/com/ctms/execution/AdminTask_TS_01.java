@@ -26,21 +26,21 @@ public class AdminTask_TS_01 {
 	@BeforeMethod
 	public void beforeMethod() throws Exception, Exception {
 
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("Login");
+		Sheet r1 = wb.getSheet("LoginDetails");
 
-		String URL = r1.getCell(3, 0).getContents();
+		String URL = r1.getCell(0, 2).getContents();
 		String firefoxBrowser = r1.getCell(1, 2).getContents();
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
 	}
 
-	@Test(priority = 0)
+	/*@Test(priority = 0)
 	public static void AdminTask_Rolesmangmnt() throws Exception {
 
 		RolesManagement rm = new RolesManagement();
 		rm.RoleManagmnt();
-	}
+	}*/
 
 	/*@Test(priority = 1)
 	public static void AdminTask_UserManagemnt() throws Exception {
@@ -67,12 +67,6 @@ public class AdminTask_TS_01 {
 		CP.CratPrjct();
 	}
 
-	@Test(priority = 7)
-	public static void UserXStudyXRolesMNG() throws Exception {
-		UserXStudyXRolesManagement USRM = new UserXStudyXRolesManagement();
-		USRM.UsrXStdyXRlsMNGMNT();
-	}
-
 	@Test(priority = 5)
 	public static void SiteMNGMT() throws Exception {
 		SiteManagement SM = new SiteManagement();
@@ -89,9 +83,16 @@ public class AdminTask_TS_01 {
 	public static void SiteXStudyMethod() throws Exception {
 		StudyXSite SXS = new StudyXSite();
 		SXS.AssingSiteXStudy();
-	}
+	}*/
 	
-	@Test(priority = 9)
+	
+	
+	/*@Test(priority = 7)
+	public static void UserXStudyXRolesMNG() throws Exception {
+		UserXStudyXRolesManagement USRM = new UserXStudyXRolesManagement();
+		USRM.UsrXStdyXRlsMNGMNT();
+	}
+	 @Test(priority = 9)
 	public static void ProjectListMethod() throws Exception {
 		PM_ProjectList PLP = new PM_ProjectList();
 		PLP.ProjectListMethod();

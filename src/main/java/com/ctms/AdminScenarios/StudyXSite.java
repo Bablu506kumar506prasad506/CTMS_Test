@@ -24,21 +24,18 @@ public class StudyXSite {
 
 	public void AssingSiteXStudy() throws Exception {
 		GlobalMethods.Admin_Login();
-
+		Thread.sleep(1500);
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement MenuNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		MenuNavig.click();
-
-		WebElement StudyXSitemngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[5]");
+		WebElement StudyXSitemngmt = GWait.Wait_GetElementByLinkText("Stud X Site");
 		StudyXSitemngmt.click();
 		
 		Thread.sleep(1500);
 
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("sitestudy");
+		Sheet r1 = wb.getSheet("SiteXStudy");
 		int RowCount = r1.getRows();
 		System.out.println(RowCount);
 		for (int i = 1; i <= RowCount - 1; i++) {

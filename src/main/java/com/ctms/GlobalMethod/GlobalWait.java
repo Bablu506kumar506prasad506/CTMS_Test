@@ -164,6 +164,21 @@ public class GlobalWait {
 		return elementPLT;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
+	public WebElement Wait_GetElementByFormControlName(final String elementformconrlName) {
+		Wait wait = new FluentWait(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(2, TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class);
+		WebElement elementPLT = (WebElement) wait.until(new Function() {
+			@Override
+			public Object apply(Object arg0) {
+				//System.out.println("test" + elementPartialLT);
+				return driver.findElement(By.cssSelector("input[formControlName="+elementformconrlName+"]"));
+			}
+		});
+		flyInOut();
+		return elementPLT;
+	}
+	
 	public void blockUI() {
 
 		By loadingImage = By.className("blockUI blockOverlay");

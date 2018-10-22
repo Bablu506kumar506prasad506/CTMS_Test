@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.ctms.execution.AdminTask_TS_01">
+      <class name="com.ctms.execution.SuperadminExecutionClass">
         <methods>
-          <include name="AdminTask_Rolesmangmnt"/>
           <include name="beforeMethod"/>
+          <include name="AdminTask_Rolesmangmnt"/>
         </methods>
-      </class> <!-- com.ctms.execution.AdminTask_TS_01 -->
+      </class> <!-- com.ctms.execution.SuperadminExecutionClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

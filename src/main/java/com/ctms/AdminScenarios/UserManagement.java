@@ -27,19 +27,20 @@ public class UserManagement {
 	@FindBy(xpath = "//div/form/div[1]/div/select/option")
 	public static List<WebElement> slectRole;
 
+	public String UserName_Data=null;
+	public static int i;
+	public static int RowCount;
+	
 	public void UserMngmnt() throws Exception {
 		GlobalMethods.Admin_Login();
-
+		Thread.sleep(2000);
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		AdminTaskNavig.click();
-
-		WebElement Usermngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[2]/a");
+		WebElement Usermngmt = GWait.Wait_GetElementByLinkText("User Management");
 		Usermngmt.click();
-		
-		Thread.sleep(4000);
+
+		/*Thread.sleep(4000);
 		WebElement AddUser_BTN = GWait
 				.Wait_GetElementByXpath("//main/app-admin/app-user-management/div/div[1]/div/button");
 		AddUser_BTN.click();
@@ -49,26 +50,26 @@ public class UserManagement {
 		se.selectByIndex(1);
 
 		WebElement Cancel_BTN = GWait.Wait_GetElementByCSS("button.blue-rnd-btn:nth-child(2)");
-		Cancel_BTN.click();
+		Cancel_BTN.click();*/
 
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("UserManagement");
+		Sheet r1 = wb.getSheet("UserMNGMT");
 		System.out.println(slectRole.size());
-		int RowCount = r1.getRows();
+		RowCount = r1.getRows();
 		System.out.println(RowCount);
-		for (int i = 1; i <= RowCount-1; i++) {
+		for (i = 8; i <= RowCount - 1; i++) {
 
 			String RoleName_Data = r1.getCell(0, i).getContents();
 			String Name_Data = r1.getCell(1, i).getContents();
 			String EmailID_Data = r1.getCell(2, i).getContents();
 			String MobileNumber_Data = r1.getCell(3, i).getContents();
-			String UserName_Data = r1.getCell(4, i).getContents();
+			UserName_Data = r1.getCell(4, i).getContents();
 			Thread.sleep(4000);
 			WebElement AddUser_BTN1 = GWait
 					.Wait_GetElementByXpath("//main/app-admin/app-user-management/div/div[1]/div/button");
 			AddUser_BTN1.click();
-
+			Thread.sleep(1000);
 			WebElement SelectRole1 = GWait.Wait_GetElementByXpath("//form/div[1]/div/select");
 			Select se1 = new Select(SelectRole1);
 			se1.selectByVisibleText(RoleName_Data);
@@ -83,14 +84,16 @@ public class UserManagement {
 			UserName_Field.sendKeys(UserName_Data);
 			WebElement Submit_BTN = GWait.Wait_GetElementByXpath("//button[@type='submit']");
 			Submit_BTN.click();
-			Thread.sleep(3000);
+			Thread.sleep(7000);
+			GlobalMethods.UserCreationMailFunctionality();
+			Thread.sleep(1000);
 
 		}
-		
+
 		Thread.sleep(10000);
 		WebElement Logout_BTN = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/button/span[2]");
 		Logout_BTN.click();
-		
+
 		WebElement Logout = GWait.Wait_GetElementByXpath("//nav/div[2]/div[2]/ul/li[3]/a");
 		Logout.click();
 

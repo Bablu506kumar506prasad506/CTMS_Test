@@ -34,21 +34,18 @@ public class RolesXActionManagement {
 	public void RoleXActionMngmnt() throws Exception {
 
 		GlobalMethods.Admin_Login();
-
+		Thread.sleep(2000);
 		WebElement navig = GWait.Wait_GetElementByCSS(".menu-ham > img:nth-child(1)");
 		navig.click();
 
-		WebElement AdminTaskNavig = GWait.Wait_GetElementByCSS("li.ng-star-inserted:nth-child(1) > a:nth-child(1)");
-		AdminTaskNavig.click();
-
-		WebElement RoleXActionmngmt = GWait.Wait_GetElementByXpath("//nav/ul/li[1]/div/ul/li[4]/a");
+		WebElement RoleXActionmngmt = GWait.Wait_GetElementByLinkText("Roles X Actions Management");
 		RoleXActionmngmt.click();
 		
 		Thread.sleep(2000);
 
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DataFile.xls");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/CTMS.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
-		Sheet r1 = wb.getSheet("RoleXFeatureMNGMNT");
+		Sheet r1 = wb.getSheet("RoleXFeature&ActionMNGMNT");
 
 		int rowval = r1.getRows();
 		System.out.println("No of rows: " + rowval);
@@ -56,7 +53,7 @@ public class RolesXActionManagement {
 
 			String RoleName_Data = r1.getCell(0, i).getContents();
 			Thread.sleep(2000);
-			WebElement SelectRole = GWait.Wait_GetElementByXpath("//app-roles-actions-edit/div/div/div/select");
+			WebElement SelectRole = GWait.Wait_GetElementByCSS(".col-md-6>div>select");
 			SelectRole.click();
 			Select se = new Select(SelectRole);
 			se.selectByVisibleText(RoleName_Data);
@@ -73,8 +70,11 @@ public class RolesXActionManagement {
 				List<WebElement> table_Subelement = GlobalMethods.driver
 						.findElements(By.xpath("//a[@class='table-btn text-center margin-auto']"));
 				for (WebElement webElement : table_Subelement) {
-					if (webElement.getText().equalsIgnoreCase("Disable")) {
-						js = (JavascriptExecutor) GlobalMethods.driver;
+					
+					js = (JavascriptExecutor) GlobalMethods.driver;
+					js.executeScript("arguments[0].scrollIntoView(true);", webElement);
+					if (webElement.getText().equalsIgnoreCase("Enable")) {
+						
 						js.executeScript("arguments[0].scrollIntoView(true);", table_element);
 						webElement.click();
 					}
